@@ -1,12 +1,14 @@
+import allure
 import pytest
 from conftest import driver
+from constants import Constants
 from data import Answer
 from locators.main_page_locators import MainPageLocators
 from pages.main_page import MainPage
 
 
 class TestMainPage:
-
+    @allure.title("Тестирование ответов на вопросы")
     @pytest.mark.parametrize(
         "q_num, expected_result",
         [
@@ -22,7 +24,7 @@ class TestMainPage:
     )
     def test_question(self, q_num, driver, expected_result):
         main_page = MainPage(driver)
-        main_page.get_url("https://qa-scooter.praktikum-services.ru/")
+        main_page.get_url(Constants.URL)
         main_page.click_on_element(MainPageLocators.COOKIE_BUTTON)
         main_page.find_element_with_wait(MainPageLocators.QUESTION_LOCATORS_FIND)
         result = main_page.click_to_question_and_get_answer_text(q_num)

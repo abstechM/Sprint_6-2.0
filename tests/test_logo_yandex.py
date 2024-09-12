@@ -1,12 +1,14 @@
+import allure
 from conftest import driver
+from constants import Constants
 from locators.main_page_locators import MainPageLocators
-from pages.page_order import MakeOrderOne
+from pages.main_page import MainPage
 
 
 class TestLogoYandex:
-
+    @allure.title("Тестирование логотипа Яндекс/ Переход на Дзен")
     def test_logo_yandex(self, driver):
-        yandex = MakeOrderOne(driver)
-        yandex.get_url("https://qa-scooter.praktikum-services.ru/")
-        yandex.click_on_element(MainPageLocators.LOGO_YANDEX)
-        assert not (driver.current_url == 'https://dzen.ru/?yredirect=true')
+        yandex = MainPage(driver)
+        yandex.get_url(Constants.URL)
+        yandex.click_switch_window()
+        assert yandex.check_url(Constants.URL_DZEN)

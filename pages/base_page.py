@@ -40,4 +40,9 @@ class BasePage:
         locator = locator.format(num)
         return (method, locator)
 
+    @allure.step("Проверка URL")
+    def check_url(self, url):
+        element = self.driver.current_url
+        return element == url
+
 

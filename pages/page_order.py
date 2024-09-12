@@ -7,6 +7,10 @@ from pages.base_page import BasePage
 
 # Класс 1-ой страницы заказа
 class MakeOrderOne(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.click_logo_samokat = None
+
     @allure.step("Заполнение Имя")
     def set_name(self, name):
         self.set_text_to_elemet(OrderOneLocators.NAME_FILED, name)
