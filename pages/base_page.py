@@ -2,7 +2,6 @@ import allure
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from constants import Constants
 
 
 class BasePage:

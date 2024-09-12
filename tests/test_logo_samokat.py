@@ -1,8 +1,6 @@
 import allure
 from conftest import driver
 from constants import Constants
-from locators.main_page_locators import MainPageLocators
-from pages.page_order import MakeOrderOne
 from pages.main_page import MainPage
 
 class TestLogoSamokat:
