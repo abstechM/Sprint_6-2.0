@@ -25,8 +25,6 @@ class TestMainPage:
     def test_question(self, q_num, driver, expected_result):
         main_page = MainPage(driver)
         main_page.get_url(Constants.URL)
-        main_page.click_on_element(MainPageLocators.COOKIE_BUTTON)
-        main_page.find_element_with_wait(MainPageLocators.QUESTION_LOCATORS_FIND)
         result = main_page.click_to_question_and_get_answer_text(q_num)
         assert main_page.check_result(result, expected_result)
 

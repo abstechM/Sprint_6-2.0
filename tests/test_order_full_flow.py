@@ -12,7 +12,7 @@ class TestMakeOrdersOne:
     def test_make_oder_one_page(self, method, driver):
         order = MakeOrderOne(driver)
         order.get_url(Constants.URL)
-        order.click_on_element(MainPageLocators.COOKIE_BUTTON)
+        order.accept_cookie()
         order.click_on_element(method)
         order.order_one_part("Александр", "Дмитриев", "Санкт-Петербург", "89260235883")
         order.order_two_part("Быстрее")

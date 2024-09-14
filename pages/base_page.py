@@ -44,4 +44,9 @@ class BasePage:
         element = self.driver.current_url
         return element == url
 
+    @allure.step("Переход на заданную вкладку")
+    def step_next_window(self, page):
+        handles = self.driver.window_handles
+        self.driver.switch_to.window(handles[page])
+
 

@@ -1,5 +1,7 @@
 import allure
 from selenium.webdriver import Keys
+
+from locators.main_page_locators import MainPageLocators
 from locators.make_order_page_one_locators import OrderOneLocators
 from locators.make_order_page_two_locators import OrderTwoLocators
 from pages.base_page import BasePage
@@ -37,6 +39,11 @@ class MakeOrderOne(BasePage):
         self.click_on_element(OrderOneLocators.CONT_BUTTON)
 
 
+    @allure.step("Принять cookie")
+    def accept_cookie(self):
+        self.click_on_element(MainPageLocators.COOKIE_BUTTON)
+
+
     @allure.step("Заполнение перовй страницы заказа")
     def order_one_part(self, name, secname, addres, number):
         self.set_metro()
@@ -49,7 +56,6 @@ class MakeOrderOne(BasePage):
     @allure.step("Установка даты заказа")
     def set_when_delivery(self):
         self.set_text_to_elemet(OrderTwoLocators.WHEN_DELIVERY_FIELD, "09.09.2024" + Keys.ENTER)
-        #self.click_on_element(OrderTwoLocators.Calendar)
 
     @allure.step("Установа периода аренды")
     def set_rent_period(self):

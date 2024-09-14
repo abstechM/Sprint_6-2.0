@@ -9,5 +9,5 @@ class TestLogoYandex:
     def test_logo_yandex(self, driver):
         yandex = MainPage(driver)
         yandex.get_url(Constants.URL)
-        yandex.click_switch_window()
+        yandex.click_switch_window(1)
         assert yandex.check_url(Constants.URL_DZEN)
