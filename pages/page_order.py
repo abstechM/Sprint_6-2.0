@@ -1,7 +1,5 @@
 import allure
 from selenium.webdriver import Keys
-
-from locators.main_page_locators import MainPageLocators
 from locators.make_order_page_one_locators import OrderOneLocators
 from locators.make_order_page_two_locators import OrderTwoLocators
 from pages.base_page import BasePage
@@ -38,10 +36,10 @@ class MakeOrderOne(BasePage):
     def click_continiue(self):
         self.click_on_element(OrderOneLocators.CONT_BUTTON)
 
+    @allure.step("Находим в коцне заголовок")
+    def check_end_order(self):
+        assert self.find_element_with_wait(OrderTwoLocators.HEADER_OF_ORDER)
 
-    @allure.step("Принять cookie")
-    def accept_cookie(self):
-        self.click_on_element(MainPageLocators.COOKIE_BUTTON)
 
 
     @allure.step("Заполнение перовй страницы заказа")
